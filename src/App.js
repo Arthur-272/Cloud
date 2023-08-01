@@ -29,7 +29,9 @@ function App() {
                 userEmail: userEmail
             });
 
+            console.log('reponse: ' + response);
             const res = response.data;
+            console.log('res' + res)
             if (res.statusCode === 200) {
                 setSuccessMessage("Item recorded successfully!");
             } else {
