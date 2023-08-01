@@ -22,21 +22,20 @@ function App() {
         const API_URL = process.env.REACT_APP_API_URL;
 
         try {
-            const response = await axios.post(API_URL, {
+            await axios.post('https://q56gh145lh.execute-api.us-east-1.amazonaws.com/lost-and-found', {
                 itemType: itemType,
                 itemName: itemName,
                 description: description,
                 userEmail: userEmail
+            }).then(response => {
+                if(response.status === 200){
+                    setSuccessMessage("Item recorded successfully.");
+                } else {
+                    setSuccessMessage("Failed to record the item.");
+                }
+            }).catch(error => {
+                console.log(error);
             });
-
-            console.log('reponse: ' + response);
-            const res = response.data;
-            console.log('res' + res)
-            if (res.statusCode === 200) {
-                setSuccessMessage("Item recorded successfully!");
-            } else {
-                setSuccessMessage("Failed to record the item.");
-            }
         } catch (error) {
             console.error("Error while submitting:", error);
             setSuccessMessage("Failed to record the item.");
