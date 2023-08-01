@@ -30,7 +30,7 @@ function App() {
             });
 
             const res = response.data;
-            if (res.status === 200) {
+            if (res.statusCode === 200) {
                 setSuccessMessage("Item recorded successfully!");
             } else {
                 setSuccessMessage("Failed to record the item.");
