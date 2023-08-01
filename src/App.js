@@ -22,7 +22,7 @@ function App() {
         const API_URL = process.env.REACT_APP_API_URL;
 
         try {
-            await axios.post('https://q56gh145lh.execute-api.us-east-1.amazonaws.com/lost-and-found', {
+            await axios.post(API_URL, {
                 itemType: itemType,
                 itemName: itemName,
                 description: description,
